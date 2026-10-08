@@ -1,7 +1,9 @@
 import streamlit as st
 import pandas as pd
 import folium
+import plotly.express as px
 from streamlit.components.v1 import html
+
 
 # ----------------------------
 # DATOS SIMULADOS
@@ -149,29 +151,25 @@ st.divider()
 
 # MAPA
 
-st.subheader("🗺️ Mapa Inteligente")
+st.subheader("🗺️ Mapa Inteligente SIPM")
 
-m = folium.Map(
-    location=[19.70, -101.18],
-    zoom_start=10,
-    tiles="OpenStreetMap"
+fig = px.scatter_mapbox(
+datos,
+lat="Lat",
+lon="Lon",
+hover_name="Localidad",
+hover_data=["IPA", "Tramites"],
+color="IPA",
+zoom=8,
+height=600
 )
 
-for _, row in datos.iterrows():
+fig.update_layout(
+mapbox_style="open-street-map",
+margin={"r":0,"t":0,"l":0,"b":0}
+)
 
-    folium.CircleMarker(
-        location=[row["Lat"], row["Lon"]],
-        radius=10,
-        color=color_prioridad(row["IPA"]),
-        fill=True,
-        fill_opacity=0.8,
-        popup=f"""
-        <b>{row['Localidad']}</b><br>
-        IPA: {row['IPA']}<br>
-        Trámites: {row['Tramites']}<br>
-        Última visita: {row['Dias_Ultima_Visita']} días
-        """
-    ).add_to(m)
+st.plotly_chart(fig, use_container_width=True)
 
 html(
     m._repr_html_(),
