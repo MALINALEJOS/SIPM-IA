@@ -160,12 +160,12 @@ color="IPA",
 size="Tramites",
 hover_name="Localidad"
 )
- 
+
 fig.update_geos(
 projection_type="mercator",
 fitbounds="locations"
 )
- 
+
 st.plotly_chart(fig, use_container_width=True)
 
 
