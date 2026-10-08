@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import folium
 import plotly.express as px
 from streamlit.components.v1 import html
 
@@ -153,17 +152,23 @@ st.divider()
 
 st.subheader("🗺️ Mapa Inteligente SIPM")
 
-fig = px.scatter_geo(
+fig = px.scatter_map(
 datos,
 lat="Lat",
 lon="Lon",
 hover_name="Localidad",
 hover_data=["IPA", "Tramites"],
 color="IPA",
+size="Tramites",
 zoom=8,
-height=600,
-size="Tramites"
+height=600
 )
+ 
+fig.update_layout(
+map_style="open-street-map",
+margin={"r":0,"t":0,"l":0,"b":0}
+)
+ 
 st.plotly_chart(fig, use_container_width=True)
 
 fig.update_layout(
