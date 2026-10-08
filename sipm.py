@@ -152,24 +152,22 @@ st.divider()
 
 st.subheader("🗺️ Mapa Inteligente SIPM")
 
-fig = px.scatter_map(
+fig = px.scatter_geo(
 datos,
 lat="Lat",
 lon="Lon",
-hover_name="Localidad",
-hover_data=["IPA", "Tramites"],
 color="IPA",
 size="Tramites",
-zoom=8,
-height=600
+hover_name="Localidad"
 )
-
-fig.update_layout(
-map_style="open-street-map",
-margin={"r":0,"t":0,"l":0,"b":0}
+ 
+fig.update_geos(
+projection_type="mercator",
+fitbounds="locations"
 )
-
+ 
 st.plotly_chart(fig, use_container_width=True)
+
 
 fig.update_layout(
 mapbox_style="open-street-map",
