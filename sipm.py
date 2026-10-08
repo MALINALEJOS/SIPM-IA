@@ -154,6 +154,7 @@ st.subheader("🗺️ Mapa Inteligente")
 m = folium.Map(
     location=[19.70, -101.18],
     zoom_start=10
+    tiles="CartoDB positron"
 )
 
 for _, row in datos.iterrows():
