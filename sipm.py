@@ -173,10 +173,7 @@ margin={"r":0,"t":0,"l":0,"b":0}
 
 st.plotly_chart(fig, use_container_width=True)
 
-html(
-    m._repr_html_(),
-    height=600
-)
+
 
 st.divider()
 
