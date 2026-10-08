@@ -163,12 +163,12 @@ size="Tramites",
 zoom=8,
 height=600
 )
- 
+
 fig.update_layout(
 map_style="open-street-map",
 margin={"r":0,"t":0,"l":0,"b":0}
 )
- 
+
 st.plotly_chart(fig, use_container_width=True)
 
 fig.update_layout(
