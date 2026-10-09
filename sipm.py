@@ -150,7 +150,7 @@ st.divider()
 
 # MAPA
 
-st.subheader("🗺️ Mapa Inteligente SIPM")
+st.subheader("🗺️ Mapa Inteligente")
 
 fig = px.scatter_geo(
 datos,
@@ -170,12 +170,12 @@ showland=True,
 landcolor="rgb(240,240,240)"
 )
 
+
 fig.update_layout(
 margin={"r":0,"t":0,"l":0,"b":0}
 )
 
 st.plotly_chart(fig, use_container_width=True)
-
 
 
 st.divider()
