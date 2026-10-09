@@ -160,17 +160,15 @@ color="IPA",
 size="Tramites",
 hover_name="Localidad"
 )
-
+ 
 fig.update_geos(
 projection_type="mercator",
-fitbounds="locations"
+lataxis_range=[18.0, 21.0],
+lonaxis_range=[-103.5, -100.0],
+showland=True,
+landcolor="rgb(240,240,240)"
 )
-
-fig.update_layout(
-margin={"r":0,"t":0,"l":0,"b":0}
-)
-
-
+ 
 st.plotly_chart(fig, use_container_width=True)
 
 
