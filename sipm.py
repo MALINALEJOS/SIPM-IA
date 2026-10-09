@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import folium
 import plotly.express as px
 from streamlit.components.v1 import html
 
@@ -152,31 +153,19 @@ st.divider()
 
 st.subheader("🗺️ Mapa Inteligente")
 
-fig = px.scatter_geo(
-datos,
-lat="Lat",
-lon="Lon",
-color="IPA",
-size="Tramites",
-hover_name="Localidad",
-projection="mercator"
+m = folium.Map(
+location=[19.70, -101.18],
+zoom_start=10,
+tiles="CartoDB Voyager"
 )
 
-fig.update_geos(
-fitbounds="locations",
-showcountries=True,
-showsubunits=True,
-showland=True,
-landcolor="rgb(240,240,240)"
+from streamlit_folium import st_folium
+
+st_folium(
+m,
+width=900,
+height=600
 )
-
-
-fig.update_layout(
-margin={"r":0,"t":0,"l":0,"b":0}
-)
-
-st.plotly_chart(fig, use_container_width=True)
-
 
 st.divider()
 
