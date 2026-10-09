@@ -179,6 +179,9 @@ for _, row in datos.iterrows():
  fill_opacity=0.8
 ).add_to(m)
 
+st.write("Mapa construido correctamente")
+st.write(m)
+
 st_folium(
 m,
 width=900,
