@@ -160,7 +160,7 @@ m = folium.Map(
  zoom_start=10
 )
 
- for _, row in datos.iterrows():
+for _, row in datos.iterrows():
 
   color = color_prioridad(row["IPA"])
 
@@ -176,7 +176,7 @@ m = folium.Map(
   fill=True,
   fill_color=color,
   fill_opacity=0.8
- ).add_to(m) 
+).add_to(m) 
 
 st_folium(m, width=1000, height=600)
 
