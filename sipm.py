@@ -162,20 +162,20 @@ from streamlit_folium import st_folium
 
 for _, row in datos.iterrows():
 
-color = color_prioridad(row["IPA"])
+ color = color_prioridad(row["IPA"])
 
-folium.CircleMarker(
-location=[row["Lat"], row["Lon"]],
-radius=max(8, row["Tramites"] / 100),
-popup=f"""
-<b>{row['Localidad']}</b><br>
-IPA: {row['IPA']}<br>
-Trámites: {row['Tramites']}
-""",
-color=color,
-fill=True,
-fill_color=color,
-fill_opacity=0.8
+ folium.CircleMarker(
+ location=[row["Lat"], row["Lon"]],
+ radius=max(8, row["Tramites"] / 100),
+ popup=f"""
+ <b>{row['Localidad']}</b><br>
+ IPA: {row['IPA']}<br>
+ Trámites: {row['Tramites']}
+ """,
+ color=color,
+ fill=True,
+ fill_color=color,
+ fill_opacity=0.8
 ).add_to(m)
 
 st_folium(
