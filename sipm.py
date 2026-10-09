@@ -1,8 +1,7 @@
 import streamlit as st
 import pandas as pd
 import folium
-import plotly.express as px
-from streamlit.components.v1 import html
+from streamlit_folium import st_folium
 
 
 # ----------------------------
@@ -156,10 +155,28 @@ st.subheader("🗺️ Mapa Inteligente")
 m = folium.Map(
 location=[19.70, -101.18],
 zoom_start=10,
-tiles="CartoDB Voyager"
+tiles="OpenStreetMap"
 )
 
 from streamlit_folium import st_folium
+
+for _, row in datos.iterrows():
+
+color = color_prioridad(row["IPA"])
+
+folium.CircleMarker(
+location=[row["Lat"], row["Lon"]],
+radius=max(8, row["Tramites"] / 100),
+popup=f"""
+<b>{row['Localidad']}</b><br>
+IPA: {row['IPA']}<br>
+Trámites: {row['Tramites']}
+""",
+color=color,
+fill=True,
+fill_color=color,
+fill_opacity=0.8
+).add_to(m)
 
 st_folium(
 m,
