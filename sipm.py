@@ -159,13 +159,13 @@ tiles="CartoDB Voyager"
 )
 
 from streamlit_folium import st_folium
- 
+
 m = folium.Map(
 location=[19.70, -101.18],
 zoom_start=10,
 tiles="CartoDB Positron"
 )
- 
+
 st_folium(m, width=800, height=500)
 
 #from streamlit_folium import st_folium
