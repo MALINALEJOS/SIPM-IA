@@ -155,13 +155,9 @@ st.subheader("🗺️ Mapa Inteligente")
 m = folium.Map(
 location=[19.70, -101.18],
 zoom_start=10,
-tiles=None
+tiles="CartoDB Voyager"
 )
- 
-folium.TileLayer(
-tiles="CartoDB Voyager",
-name="CartoDB"
-).add_to(m)
+
 
 from streamlit_folium import st_folium
 
