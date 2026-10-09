@@ -155,10 +155,10 @@ st.subheader("🗺️ Mapa Inteligente")
 
 from streamlit_folium import st_folium
  
- m = folium.Map(
+m = folium.Map(
  location=[19.70, -101.18],
  zoom_start=10
- )
+)
 
  for _, row in datos.iterrows():
 
