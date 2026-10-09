@@ -163,11 +163,15 @@ projection="mercator"
 )
 
 fig.update_geos(
-lataxis_range=[18.5, 20.8],
-lonaxis_range=[-103.0, -100.0],
+fitbounds="locations",
 showcountries=True,
 showsubunits=True,
-fitbounds="locations"
+showland=True,
+landcolor="rgb(240,240,240)"
+)
+
+fig.update_layout(
+margin={"r":0,"t":0,"l":0,"b":0}
 )
 
 st.plotly_chart(fig, use_container_width=True)
