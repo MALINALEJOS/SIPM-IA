@@ -152,21 +152,19 @@ st.divider()
 
 st.subheader("🗺️ Mapa Inteligente")
 
-m = folium.Map(
-location=[19.70, -101.18],
-zoom_start=10
-)
 
 from streamlit_folium import st_folium
 
 m = folium.Map(
 location=[19.70, -101.18],
-zoom_start=10,
-tiles="CartoDB Positron"
+zoom_start=10
 )
 
-st_folium(m, width=800, height=500)
-
+st_folium(
+m,
+width=800,
+height=500
+)
 #from streamlit_folium import st_folium
 
 #for _, row in datos.iterrows():
