@@ -158,17 +158,18 @@ lat="Lat",
 lon="Lon",
 color="IPA",
 size="Tramites",
-hover_name="Localidad"
+hover_name="Localidad",
+projection="mercator"
 )
- 
+
 fig.update_geos(
-projection_type="mercator",
-lataxis_range=[18.0, 21.0],
-lonaxis_range=[-103.5, -100.0],
-showland=True,
-landcolor="rgb(240,240,240)"
+lataxis_range=[18.5, 20.8],
+lonaxis_range=[-103.0, -100.0],
+showcountries=True,
+showsubunits=True,
+fitbounds="locations"
 )
- 
+
 st.plotly_chart(fig, use_container_width=True)
 
 
