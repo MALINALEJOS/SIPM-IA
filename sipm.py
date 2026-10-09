@@ -154,45 +154,33 @@ st.subheader("🗺️ Mapa Inteligente")
 
 
 from streamlit_folium import st_folium
+ 
+ m = folium.Map(
+ location=[19.70, -101.18],
+ zoom_start=10
+ )
 
-m = folium.Map(
-location=[19.70, -101.18],
-zoom_start=10
-)
+ for _, row in datos.iterrows():
 
-st_folium(
-m,
-width=800,
-height=500
-)
-#from streamlit_folium import st_folium
+  color = color_prioridad(row["IPA"])
 
-#for _, row in datos.iterrows():
+  folium.CircleMarker(
+  location=[row["Lat"], row["Lon"]],
+  radius=max(8, row["Tramites"] / 100),
+  popup=f"""
+  <b>{row['Localidad']}</b><br>
+  IPA: {row['IPA']}<br>
+  Trámites: {row['Tramites']}
+  """,
+  color=color,
+  fill=True,
+  fill_color=color,
+  fill_opacity=0.8
+ ).add_to(m) 
 
- #color = color_prioridad(row["IPA"])
+st_folium(m, width=1000, height=600)
 
- #folium.CircleMarker(
- #location=[row["Lat"], row["Lon"]],
- #radius=max(8, row["Tramites"] / 100),
- #popup=f"""
- #<b>{row['Localidad']}</b><br>
- #IPA: {row['IPA']}<br>
- #Trámites: {row['Tramites']}
- #""",
- #color=color,
- #fill=True,
- #fill_color=color,
- #fill_opacity=0.8
-#).add_to(m) 
 
-st.write("Mapa construido correctamente")
-st.write(m)
-
-st_folium(
-m,
-width=900,
-height=600
-)
 
 st.divider()
 
