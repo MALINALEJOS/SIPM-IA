@@ -15,7 +15,8 @@ datos = pd.DataFrame({
         "Cuto de la Esperanza",
         "Santiago Undameo",
         "Capula",
-        "Tenencia Morelos"
+        "Tenencia Morelos",
+        "Malin Alejos"
     ],
     "Lat": [
         19.5660,
@@ -23,7 +24,8 @@ datos = pd.DataFrame({
         19.7100,
         19.5300,
         19.7000,
-        19.6200
+        19.6200,
+        19.5800
     ],
     "Lon": [
         -101.2200,
@@ -31,7 +33,9 @@ datos = pd.DataFrame({
         -101.1700,
         -101.1800,
         -101.2800,
-        -101.1200
+        -101.1200,
+        -101.1500, 
+        -101.2000
     ],
     "Tramites": [
         235,
@@ -39,7 +43,8 @@ datos = pd.DataFrame({
         145,
         170,
         780,
-        1250
+        1250,
+        999
     ],
     "Dias_Ultima_Visita": [
         180,
@@ -47,7 +52,8 @@ datos = pd.DataFrame({
         120,
         110,
         20,
-        10
+        10,
+        230
     ],
     "Distancia_MAC": [
         19,
@@ -55,7 +61,8 @@ datos = pd.DataFrame({
         22,
         15,
         8,
-        4
+        4,
+        6
     ],
     "Crecimiento": [
         15,
@@ -63,7 +70,8 @@ datos = pd.DataFrame({
         18,
         10,
         2,
-        1
+        1,
+        3
     ]
 })
 
